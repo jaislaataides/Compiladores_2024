@@ -3,6 +3,6 @@
 <h1 align="left">Compiladores 2024</h1>
 
 
-<p>Neste repositório estarão dispostas as atividades realizadas para a disciplina de compiladores no curso de ciência da computação.</p>
+<p>Neste repositório estarão dispostas as atividades realizadas para a disciplina de compiladores no curso de ciência da computação na Universidade Federal de Jataí.</p>
 <p>Cada pasta contém, no mínimo, o readme.md que descreve a atividade realizada e a atividade propriamente dita.</p>
 
