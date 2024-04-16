@@ -9,5 +9,7 @@
 <br>
 <h3>Atividades</h3>
 <ol>
-<li><a href="https://github.com/jaislaataides/Compiladores_2024/tree/main/atividade%201">Validação de variáveis</a></li>
+<a href="https://github.com/jaislaataides/Compiladores_2024/tree/main/atividade%201"><li>
+Validação de variáveis
+</li></a>
 </ol>
