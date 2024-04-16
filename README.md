@@ -7,7 +7,7 @@
 <p>Cada pasta contém, no mínimo, o readme.md que descreve a atividade realizada e a atividade propriamente dita.</p>
 
 <br>
-<h6>Atividades</h6>
+<h3>Atividades</h3>
 <ol>
-<li><a href="">Validação de variáveis</a></li>
+<li><a href="https://github.com/jaislaataides/Compiladores_2024/tree/main/atividade%201">Validação de variáveis</a></li>
 </ol>
