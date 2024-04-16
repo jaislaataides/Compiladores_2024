@@ -6,3 +6,8 @@
 <p>Neste repositório estarão dispostas as atividades realizadas para a disciplina de compiladores no curso de ciência da computação na Universidade Federal de Jataí.</p>
 <p>Cada pasta contém, no mínimo, o readme.md que descreve a atividade realizada e a atividade propriamente dita.</p>
 
+<br>
+<h6>Atividades</h6>
+<ol>
+<li><a href="">Validação de variáveis</a></li>
+</ol>
