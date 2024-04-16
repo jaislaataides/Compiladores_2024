@@ -1,6 +1,6 @@
 <div align="center">
-<h1>Atividade 1: analizador de variáveis</h1>
-<small>04/04/2024</small>
+<h1 align="left">Atividade 1: analizador de variáveis</h1>
+<small align="right">04/04/2024</small>
 </div>
 <br>
 <br>
