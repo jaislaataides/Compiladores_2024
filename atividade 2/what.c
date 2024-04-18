@@ -4,6 +4,6 @@
 
 int main()
 {
-    if(MAIORQUE(5, 3))
-        printf("5 > 3");
+    if(MAIORQUE(40, 35))
+        printf("40 > 35");
 }
