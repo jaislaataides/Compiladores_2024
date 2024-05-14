@@ -1,0 +1,6 @@
+//este é um comentário
+A = -3;
+B = -20.5;
+C = A + B;
+D = -A;
+print C;
