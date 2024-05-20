@@ -23,6 +23,8 @@ int yyerror(const char *s);
 
 "stopa" {return TOK_BREAK;}
 
+"baboi" {return TOK_SCAN;}
+
 "+" { return '+'; }
 "-" { return '-'; }
 "*" { return '*'; }
