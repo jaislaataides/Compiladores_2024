@@ -1,0 +1,14 @@
+A = 1;
+chasy(A < B){
+    A = 2;
+} ditto chasy (A == B){
+    A = 1;
+} ditto {
+    A = 3;
+}
+pwede(kan pai){
+    A = A + 1;
+}
+gru (A);
+
+true = kan pai;
