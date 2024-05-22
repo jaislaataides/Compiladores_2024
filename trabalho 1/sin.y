@@ -20,8 +20,8 @@ int yylex(void);
 %token TOK_FALSE
 %token TOK_IGUAL
 %token TOK_DIFERENTE
-%token TOK_MENOROU
-%token TOK_MAIOROU
+%token TOK_MEOI
+%token TOK_MAOI
 %token TOK_OR 
 %token TOK_AND
 %token TIPO_INT
@@ -29,7 +29,6 @@ int yylex(void);
 %token TIPO_STRING
 %token TIPO_CHAR
 %token TIPO_BOOL
-
 
 %start program
 
@@ -47,6 +46,9 @@ global : declaration | atribuition | loop | print | selection | break{
 }
 
 declaration : tipo TOK_IDENT '=' tok ';'{
+} 
+
+declaration : tipo TOK_IDENT '=' numeric_expression ';'{
 } 
 
 declaration : tipo TOK_IDENT ';'{
@@ -70,7 +72,14 @@ tipo : TIPO_INT{
 tipo : TIPO_FLOAT{
 }
 
-tipo : TIPO_STRING
+tipo : TIPO_STRING{
+}
+
+tipo : TIPO_BOOL{
+}
+
+tipo : TIPO_CHAR{
+}
 
 tok : condition{
 }
@@ -159,13 +168,13 @@ logic_operator : TOK_IGUAL{
 logic_operator : '<'{
 }
 
-logic_operator : TOK_MENOROU{
+logic_operator : TOK_MEOI{
 }
 
 logic_operator : '>'{
 }
 
-logic_operator : TOK_MAIOROU{
+logic_operator : TOK_MAOI{
 }
 
 loop : TOK_LOOP '(' TOK_INT ';' TOK_INT ';' TOK_INT ')''{' globals '}'{

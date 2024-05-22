@@ -25,6 +25,17 @@ int yyerror(const char *s);
 
 "baboi" {return TOK_SCAN;}
 
+"nah" {return TIPO_BOOL;}
+
+"dul" {return TIPO_INT;}
+
+"sae" {return TIPO_FLOAT;}
+
+"po ka" {return TIPO_CHAR;}
+
+"bello" {return TIPO_STRING;}
+
+
 "+" { return '+'; }
 "-" { return '-'; }
 "*" { return '*'; }
@@ -34,8 +45,8 @@ int yyerror(const char *s);
 ";" { return ';'; }
 "!=" { return TOK_DIFERENTE;}
 "=" { return '='; }
-"<=" { return TOK_MENOROU;}
-">=" { return TOK_MAIOROU;}
+"<=" { return TOK_MEOI;}
+">=" { return TOK_MAOI;}
 "==" { return TOK_IGUAL;}
 ">" {return '>';}
 "<" {return '<';}
@@ -46,7 +57,7 @@ int yyerror(const char *s);
 
 "bee do" {return TOK_FALSE;}
 
-\"[a-zA-Z_' ']+\" {return TOK_STRING;}
+\"[a-zA-Z_' '0-9]+\" {return TOK_STRING;}
 
 [a-zA-Z_][a-zA-Z0-9_]* {return TOK_IDENT;}
 

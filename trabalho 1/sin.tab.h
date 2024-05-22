@@ -69,8 +69,8 @@ extern int yydebug;
     TOK_FALSE = 270,               /* TOK_FALSE  */
     TOK_IGUAL = 271,               /* TOK_IGUAL  */
     TOK_DIFERENTE = 272,           /* TOK_DIFERENTE  */
-    TOK_MENOROU = 273,             /* TOK_MENOROU  */
-    TOK_MAIOROU = 274,             /* TOK_MAIOROU  */
+    TOK_MEOI = 273,                /* TOK_MEOI  */
+    TOK_MAOI = 274,                /* TOK_MAOI  */
     TOK_OR = 275,                  /* TOK_OR  */
     TOK_AND = 276,                 /* TOK_AND  */
     TIPO_INT = 277,                /* TIPO_INT  */
