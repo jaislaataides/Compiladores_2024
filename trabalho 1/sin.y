@@ -43,7 +43,19 @@ globals : globals global{
 globals : global{
 }
 
-global : atribuition | loop | print | selection | break{
+global : declaration | atribuition | loop | print | selection | break{
+}
+
+declaration : tipo TOK_IDENT '=' tok ';'{
+} 
+
+declaration : tipo TOK_IDENT ';'{
+}
+
+atribuition: TOK_IDENT '=' tok ';'{
+}
+
+atribuition: TOK_IDENT '=' numeric_expression ';'{
 }
 
 atribuition : TOK_IDENT '=' scan{
@@ -59,12 +71,6 @@ tipo : TIPO_FLOAT{
 }
 
 tipo : TIPO_STRING
-
-atribuition: TOK_IDENT '=' tok ';'{
-}
-
-atribuition: TOK_IDENT '=' numeric_expression ';'{
-}
 
 tok : condition{
 }
@@ -117,13 +123,16 @@ print : TOK_PRINT '(' tok ')'';'{
 print : TOK_PRINT '(' TOK_IDENT ')'';'{
 }
 
-selection : TOK_IF '(' condition ')' '{' global '}'{
+selection : TOK_IF '(' condition ')' '{' globals '}'{
 }
 
-selection : TOK_IF '(' condition ')' '{' global '}' TOK_ELSE '{' global '}'{
+selection : TOK_IF '(' condition ')' '{' globals '}' TOK_ELSE '{' globals '}'{
 }
 
-selection : TOK_IF '(' condition ')' '{' global '}' TOK_ELSE selection {    
+selection : TOK_IF '(' condition ')' '{' globals '}' TOK_ELSE selection {    
+}
+
+condition : numeric_factor logic_operator numeric_factor{
 }
 
 condition : '(' condition TOK_OR condition ')'{
@@ -139,9 +148,6 @@ bool : TOK_TRUE{
 }
 
 bool : TOK_FALSE{
-}
-
-condition : numeric_factor logic_operator numeric_factor{
 }
 
 logic_operator : TOK_DIFERENTE{
@@ -162,10 +168,10 @@ logic_operator : '>'{
 logic_operator : TOK_MAIOROU{
 }
 
-loop : TOK_LOOP '(' TOK_INT ';' TOK_INT ';' TOK_INT ')''{' global '}'{
+loop : TOK_LOOP '(' TOK_INT ';' TOK_INT ';' TOK_INT ')''{' globals '}'{
 }
 
-loop : TOK_LOOP '(' condition ')''{' global '}'{
+loop : TOK_LOOP '(' condition ')''{' globals '}'{
 }
 
 break : TOK_BREAK ';'{

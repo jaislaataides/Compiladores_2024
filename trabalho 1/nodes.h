@@ -169,7 +169,19 @@ class If{
         }
 };
 
-//class Else
+class Else{
+    protected:
+        Node *value;
+
+    public:
+        Else(Node *v){
+            value = v;
+        }
+
+        virtual string toStr(){
+            return "else";
+        }
+};
 
 class Loop{
     protected:
