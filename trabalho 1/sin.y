@@ -60,16 +60,13 @@ tipo : TIPO_FLOAT{
 
 tipo : TIPO_STRING
 
-atribuition : TOK_IDENT '=' numeric_expression ';'{
-}
-
 atribuition: TOK_IDENT '=' tok ';'{
 }
 
-tok : factor{
+atribuition: TOK_IDENT '=' numeric_expression ';'{
 }
 
-tok : bool{
+tok : condition{
 }
 
 tok : TOK_STRING{
@@ -114,16 +111,10 @@ numeric_factor : unary{
 unary : '-' numeric_factor{
 }
 
-print : TOK_PRINT '(' factor ')'';'{
+print : TOK_PRINT '(' tok ')'';'{
 }
 
-print : TOK_PRINT '(' condition ')'';'{
-}
-
-print : TOK_PRINT '(' numeric_expression ')'';'{
-}
-
-print : TOK_PRINT '(' TOK_STRING ')'';'{
+print : TOK_PRINT '(' TOK_IDENT ')'';'{
 }
 
 selection : TOK_IF '(' condition ')' '{' global '}'{
@@ -135,10 +126,10 @@ selection : TOK_IF '(' condition ')' '{' global '}' TOK_ELSE '{' global '}'{
 selection : TOK_IF '(' condition ')' '{' global '}' TOK_ELSE selection {    
 }
 
-condition : condition TOK_OR condition{
+condition : '(' condition TOK_OR condition ')'{
 }
 
-condition: condition TOK_AND condition {
+condition: '(' condition TOK_AND condition ')' {
 }
 
 condition : bool{
@@ -150,16 +141,7 @@ bool : TOK_TRUE{
 bool : TOK_FALSE{
 }
 
-condition : factor logic_operator factor{
-}
-
-factor : numeric_factor{
-}
-
-factor : TOK_CHAR{
-}
-
-factor : TOK_STRING{
+condition : numeric_factor logic_operator numeric_factor{
 }
 
 logic_operator : TOK_DIFERENTE{
@@ -184,9 +166,6 @@ loop : TOK_LOOP '(' TOK_INT ';' TOK_INT ';' TOK_INT ')''{' global '}'{
 }
 
 loop : TOK_LOOP '(' condition ')''{' global '}'{
-}
-
-loop : TOK_LOOP '(' bool ')''{' global '}'{
 }
 
 break : TOK_BREAK ';'{

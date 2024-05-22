@@ -57,25 +57,27 @@ extern int yydebug;
     TOK_IDENT = 258,               /* TOK_IDENT  */
     TOK_PRINT = 259,               /* TOK_PRINT  */
     TOK_SCAN = 260,                /* TOK_SCAN  */
-    TOK_BOOL = 261,                /* TOK_BOOL  */
-    TOK_INT = 262,                 /* TOK_INT  */
-    TOK_FLOAT = 263,               /* TOK_FLOAT  */
-    TOK_STRING = 264,              /* TOK_STRING  */
-    TOK_CHAR = 265,                /* TOK_CHAR  */
-    TOK_IF = 266,                  /* TOK_IF  */
-    TOK_ELSE = 267,                /* TOK_ELSE  */
-    TOK_LOOP = 268,                /* TOK_LOOP  */
-    TOK_BREAK = 269,               /* TOK_BREAK  */
-    TOK_TRUE = 270,                /* TOK_TRUE  */
-    TOK_FALSE = 271,               /* TOK_FALSE  */
-    TOK_IGUAL = 272,               /* TOK_IGUAL  */
-    TOK_DIFERENTE = 273,           /* TOK_DIFERENTE  */
-    TOK_MENOROU = 274,             /* TOK_MENOROU  */
-    TOK_MAIOROU = 275,             /* TOK_MAIOROU  */
-    TOK_OR = 276,                  /* TOK_OR  */
-    TOK_AND = 277,                 /* TOK_AND  */
-    TIPO_INT = 278,                /* TIPO_INT  */
-    TIPO_FLOAT = 279               /* TIPO_FLOAT  */
+    TOK_INT = 261,                 /* TOK_INT  */
+    TOK_FLOAT = 262,               /* TOK_FLOAT  */
+    TOK_STRING = 263,              /* TOK_STRING  */
+    TOK_CHAR = 264,                /* TOK_CHAR  */
+    TOK_IF = 265,                  /* TOK_IF  */
+    TOK_ELSE = 266,                /* TOK_ELSE  */
+    TOK_LOOP = 267,                /* TOK_LOOP  */
+    TOK_BREAK = 268,               /* TOK_BREAK  */
+    TOK_TRUE = 269,                /* TOK_TRUE  */
+    TOK_FALSE = 270,               /* TOK_FALSE  */
+    TOK_IGUAL = 271,               /* TOK_IGUAL  */
+    TOK_DIFERENTE = 272,           /* TOK_DIFERENTE  */
+    TOK_MENOROU = 273,             /* TOK_MENOROU  */
+    TOK_MAIOROU = 274,             /* TOK_MAIOROU  */
+    TOK_OR = 275,                  /* TOK_OR  */
+    TOK_AND = 276,                 /* TOK_AND  */
+    TIPO_INT = 277,                /* TIPO_INT  */
+    TIPO_FLOAT = 278,              /* TIPO_FLOAT  */
+    TIPO_STRING = 279,             /* TIPO_STRING  */
+    TIPO_CHAR = 280,               /* TIPO_CHAR  */
+    TIPO_BOOL = 281                /* TIPO_BOOL  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
