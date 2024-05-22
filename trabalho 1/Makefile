@@ -1,4 +1,4 @@
 all:
 	flex lex.l
 	bison -d sin.y
-	gcc *.c -o banana
+	g++ *.c -o banana

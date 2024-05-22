@@ -8,7 +8,6 @@ int yylex(void);
 %token TOK_IDENT
 %token TOK_PRINT
 %token TOK_SCAN
-%token TOK_BOOL
 %token TOK_INT
 %token TOK_FLOAT
 %token TOK_STRING
@@ -27,6 +26,9 @@ int yylex(void);
 %token TOK_AND
 %token TIPO_INT
 %token TIPO_FLOAT
+%token TIPO_STRING
+%token TIPO_CHAR
+%token TIPO_BOOL
 
 
 %start program
@@ -47,7 +49,7 @@ global : atribuition | loop | print | selection | break{
 atribuition : TOK_IDENT '=' scan{
 }
 
-scan : TOK_SCAN '(' tipo '+' tok ')'';'{
+scan : TOK_SCAN '(' tipo ')'';'{
 }
 
 tipo : TIPO_INT{
@@ -56,8 +58,7 @@ tipo : TIPO_INT{
 tipo : TIPO_FLOAT{
 }
 
-scan : TOK_SCAN '(' TOK_STRING ')'';'{
-}
+tipo : TIPO_STRING
 
 atribuition : TOK_IDENT '=' numeric_expression ';'{
 }

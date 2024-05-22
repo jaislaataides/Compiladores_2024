@@ -11,4 +11,6 @@ pwede(kan pai){
 }
 gru (A);
 
+A = "stopa";
+
 true = kan pai;
