@@ -19,7 +19,3 @@
 <li>true: kan pai (cheers)</li>
 <li>false: bee do (fire)</li>
 </ul>
-
-TO-DO
-
-- adicionar tipos de variáveis 

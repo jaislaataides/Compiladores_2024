@@ -1,0 +1,2 @@
+//uso de parentese unico na condicional
+chasy(1 != 2 || 1 < 2){}

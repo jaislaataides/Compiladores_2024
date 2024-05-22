@@ -35,7 +35,8 @@ int yyerror(const char *s);
 
 "bello" {return TIPO_STRING;}
 
-
+"||" { return TOK_OR;}
+"&&" { return TOK_AND;}
 "+" { return '+'; }
 "-" { return '-'; }
 "*" { return '*'; }

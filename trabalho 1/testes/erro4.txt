@@ -1,0 +1,2 @@
+//atribuição de uma palavra desconhecida (não pertence à liguagem)
+nah boolean = true;

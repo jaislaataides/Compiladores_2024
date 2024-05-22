@@ -1,16 +1,24 @@
 dul A = 1;
-chasy(A < B){
+
+chasy((A < B || A == 3)){
     A = 2;
 } ditto chasy (A == B){
     A = 1;
 } ditto {
     A = 3;
+    A = "stopa 123";
+    gru (A);
 }
-pwede(kan pai){
+
+sae B = 4.78;
+
+bello string = "Hello world";
+
+po ka char = 'A';
+
+pwede(A < 7){
     A = A + 1;
 }
-gru (A);
+gru(A);
 
-A = "stopa 123";
-
-true = kan pai;
+nah true = kan pai;
