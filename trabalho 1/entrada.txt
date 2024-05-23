@@ -1,5 +1,9 @@
 dul A = 1;
 
+C = "banana";
+
+var = baboi(dul);
+
 chasy((A < B || A == 3)){
     A = 2;
 } ditto chasy (A == B){

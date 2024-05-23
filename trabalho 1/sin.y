@@ -45,46 +45,40 @@ globals : global{
 global : declaration | atribuition | loop | print | selection | break{
 }
 
-declaration : tipo TOK_IDENT '=' tok ';'{
+declaration : type TOK_IDENT '=' tok ';'{
 } 
 
-declaration : tipo TOK_IDENT '=' numeric_expression ';'{
-} 
-
-declaration : tipo TOK_IDENT ';'{
+declaration : type TOK_IDENT ';'{
 }
 
 atribuition: TOK_IDENT '=' tok ';'{
 }
 
-atribuition: TOK_IDENT '=' numeric_expression ';'{
-}
-
 atribuition : TOK_IDENT '=' scan{
 }
 
-scan : TOK_SCAN '(' tipo ')'';'{
+scan : TOK_SCAN '(' type ')'';'{
 }
 
-tipo : TIPO_INT{
+type : TIPO_INT{
 }
 
-tipo : TIPO_FLOAT{
+type : TIPO_FLOAT{
 }
 
-tipo : TIPO_STRING{
+type : TIPO_STRING{
 }
 
-tipo : TIPO_BOOL{
+type : TIPO_BOOL{
 }
 
-tipo : TIPO_CHAR{
-}
-
-tok : condition{
+type : TIPO_CHAR{
 }
 
 tok : TOK_STRING{
+}
+
+tok : condition{
 }
 
 tok : TOK_CHAR{
@@ -129,9 +123,6 @@ unary : '-' numeric_factor{
 print : TOK_PRINT '(' tok ')'';'{
 }
 
-print : TOK_PRINT '(' TOK_IDENT ')'';'{
-}
-
 selection : TOK_IF '(' condition ')' '{' globals '}'{
 }
 
@@ -150,6 +141,9 @@ condition : '(' condition TOK_OR condition ')'{
 condition: '(' condition TOK_AND condition ')' {
 }
 
+condition : numeric_expression{
+}
+
 condition : bool{
 }
 
@@ -157,6 +151,12 @@ bool : TOK_TRUE{
 }
 
 bool : TOK_FALSE{
+}
+
+bool : not{
+}
+
+not : '!''(' condition ')'{
 }
 
 logic_operator : TOK_DIFERENTE{
