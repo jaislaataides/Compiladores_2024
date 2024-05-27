@@ -1,8 +1,7 @@
 //uso de parentese unico na condicional
+
 chasy(1 != 2 || 1 < 2){}
 
-chasy(A == 1 || A != 2 && A > 3){
-
-}
+chasy(A == 1 || A != 2 && A > 3){}
 
 chasy(A == 1 || (A != 2 && A > 3)){}

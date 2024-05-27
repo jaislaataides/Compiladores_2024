@@ -153,12 +153,6 @@ bool : TOK_TRUE{
 bool : TOK_FALSE{
 }
 
-bool : not{
-}
-
-not : '!''(' condition ')'{
-}
-
 logic_operator : TOK_DIFERENTE{
 }
 
@@ -177,10 +171,13 @@ logic_operator : '>'{
 logic_operator : TOK_MAOI{
 }
 
-loop : TOK_LOOP '(' TOK_INT ';' TOK_INT ';' TOK_INT ')''{' globals '}'{
+loop : TOK_LOOP '(' inital  condition ';' numeric_factor ')''{' globals '}'{
 }
 
 loop : TOK_LOOP '(' condition ')''{' globals '}'{
+}
+
+inital : numeric_factor ';' | declaration | atribuition{
 }
 
 break : TOK_BREAK ';'{

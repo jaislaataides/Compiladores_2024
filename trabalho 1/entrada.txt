@@ -11,7 +11,7 @@ chasy((A < B || A == 3)){
 } ditto {
     A = 3;
     A = "stopa 123";
-    gru (A);
+    gru ("A");
 }
 
 sae B = 4.78;
