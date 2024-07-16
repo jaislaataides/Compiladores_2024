@@ -1,0 +1,28 @@
+//declração de variáveis e atribuições
+
+//bool
+nah true;
+nah true = kan pai;
+nah false = bee do;
+true = kan pai;
+false = bee do;
+
+//int
+dul int;
+dul int = 3;
+int = 4;
+
+//float
+sae float;
+sae float = 3.;
+float = 4.0;
+
+//string
+bello string;
+bello string = "Hello";
+string = "Hello world";
+
+//char
+po ka char;
+po ka char = 'A';
+char = 'B';

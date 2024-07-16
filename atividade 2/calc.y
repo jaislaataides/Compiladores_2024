@@ -1,67 +1,109 @@
 %{
+#include "nodes.h"
+
 int yyerror(const char *s);
 int yylex(void);
 %}
 
 %define parse.error verbose
 
+%union {
+    char *str;
+    int itg;
+    double flt;
+    Node *node;
+}
+
 %token TOK_IDENT
 %token TOK_PRINT
 %token TOK_FLOAT
 %token TOK_INT
 
+%type<str> TOK_IDENT
+%type<itg> TOK_INT
+%type<flt> TOK_FLOAT
+%type<node> globals global expr term factor unary
+
 %start program
 
 %%
 
-program : globals;
+program : globals {
+    Node *program = new Program();
+    
+    program->append($globals);
 
-globals : globals global{
+    printf_tree(program);
 }
 
-globals : global{
+globals : globals[gg] global {
+    $gg->append($global);
+    $$ = $gg;
 }
 
-global : TOK_IDENT '=' expr ';'{
+globals : global {
+    Node *n = new Node();
+    n->append($global);
+    $$ = n;
 }
 
-global : TOK_PRINT TOK_IDENT ';'{
+global : TOK_IDENT '=' expr ';' {
+    $$ = new Variable($TOK_IDENT, $expr);
 }
 
-expr : expr '+' term{
+global : TOK_PRINT TOK_IDENT ';' {
+    Ident *id = new Ident($TOK_IDENT);
+    $$ = new Print(id);
 }
 
-expr : expr '-' term{
+expr : expr[ee] '+' term {
+    $$ = new BinaryOp($ee, $term, '+');
 }
 
-expr : term{
+expr : expr[ee] '-' term {
+    $$ = new BinaryOp($ee, $term, '-');
 }
 
-term : term '*' factor{
+expr : term {
+    $$ = $term;
 }
 
-term : term '/' factor{
+term : term[tt] '*' factor {
+    $$ = new BinaryOp($tt, $factor, '*');
 }
 
-term : factor{
+term : term[tt] '/' factor {
+    $$ = new BinaryOp($tt, $factor, '/');
 }
 
-factor : '(' expr ')'{
+term : factor {
+    $$ = $factor;
 }
 
-factor : TOK_IDENT{
+factor : '(' expr ')' {
+    $$ = $expr;
 }
 
-factor : TOK_INT{
+factor : TOK_IDENT[str] {
+    $$ = new Ident($str);
 }
 
-factor : TOK_FLOAT{
+factor : TOK_INT[itg] {
+    $$ = new Integer($itg);
 }
 
-factor : unary{
+factor : TOK_FLOAT[flt] {
+    $$ = new Float($flt);
 }
 
-unary : '-' factor{
+factor : unary[u] {
+    $$ = $u;
 }
+
+unary : '-' factor[f] {
+    $$ = new Unary($f, '-');
+}
+
 
 %%
+

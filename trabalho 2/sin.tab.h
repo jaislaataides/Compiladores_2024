@@ -35,11 +35,11 @@
    especially those whose name start with YY_ or yy_.  They are
    private implementation details that can be changed or removed.  */
 
-#ifndef YY_YY_CALC_TAB_H_INCLUDED
-# define YY_YY_CALC_TAB_H_INCLUDED
+#ifndef YY_YY_SIN_TAB_H_INCLUDED
+# define YY_YY_SIN_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
-# define YYDEBUG 0
+# define YYDEBUG 1
 #endif
 #if YYDEBUG
 extern int yydebug;
@@ -56,8 +56,28 @@ extern int yydebug;
     YYUNDEF = 257,                 /* "invalid token"  */
     TOK_IDENT = 258,               /* TOK_IDENT  */
     TOK_PRINT = 259,               /* TOK_PRINT  */
-    TOK_FLOAT = 260,               /* TOK_FLOAT  */
-    TOK_INT = 261                  /* TOK_INT  */
+    TOK_SCAN = 260,                /* TOK_SCAN  */
+    TOK_INT = 261,                 /* TOK_INT  */
+    TOK_FLOAT = 262,               /* TOK_FLOAT  */
+    TOK_STRING = 263,              /* TOK_STRING  */
+    TOK_CHAR = 264,                /* TOK_CHAR  */
+    TOK_IF = 265,                  /* TOK_IF  */
+    TOK_ELSE = 266,                /* TOK_ELSE  */
+    TOK_LOOP = 267,                /* TOK_LOOP  */
+    TOK_BREAK = 268,               /* TOK_BREAK  */
+    TOK_TRUE = 269,                /* TOK_TRUE  */
+    TOK_FALSE = 270,               /* TOK_FALSE  */
+    TOK_IGUAL = 271,               /* TOK_IGUAL  */
+    TOK_DIFERENTE = 272,           /* TOK_DIFERENTE  */
+    TOK_MEOI = 273,                /* TOK_MEOI  */
+    TOK_MAOI = 274,                /* TOK_MAOI  */
+    TOK_OR = 275,                  /* TOK_OR  */
+    TOK_AND = 276,                 /* TOK_AND  */
+    TIPO_INT = 277,                /* TIPO_INT  */
+    TIPO_FLOAT = 278,              /* TIPO_FLOAT  */
+    TIPO_STRING = 279,             /* TIPO_STRING  */
+    TIPO_CHAR = 280,               /* TIPO_CHAR  */
+    TIPO_BOOL = 281                /* TIPO_BOOL  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -66,14 +86,15 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 10 "calc.y"
+#line 14 "sin.y"
 
     char *str;
     int itg;
     double flt;
+    char chr;
     Node *node;
 
-#line 77 "calc.tab.h"
+#line 98 "sin.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -88,4 +109,4 @@ extern YYSTYPE yylval;
 int yyparse (void);
 
 
-#endif /* !YY_YY_CALC_TAB_H_INCLUDED  */
+#endif /* !YY_YY_SIN_TAB_H_INCLUDED  */

@@ -1,8 +1,13 @@
-%{  
+
+%{
 #include <stdio.h>
+#include <stdlib.h>
+
+class Node;
 #include "calc.tab.h"
 
 int yyerror(const char *s);
+
 %}
 
 %option yylineno
@@ -15,10 +20,6 @@ int yyerror(const char *s);
 
 "print" { return TOK_PRINT; }
 
-"for \( \) \{ \}" {return TOK_FOR}
-
-"if \( \) \{ \}" {return TOK_IF}
-
 "+" { return '+'; }
 "-" { return '-'; }
 "*" { return '*'; }
@@ -29,20 +30,23 @@ int yyerror(const char *s);
 "=" { return '='; }
 
 [a-zA-Z_][a-zA-Z0-9_]* {
+    yylval.str = strndup(yytext, yyleng);
     return TOK_IDENT;
 }
 
 [0-9]+\.[0-9]* {
+    yylval.flt = atof(yytext);
     return TOK_FLOAT;
 }
 
 [0-9]+ {
+    yylval.itg = atoi(yytext);
     return TOK_INT;
 }
 
-. {
-    printf("Simbolo nao reconhecido%c\n", yytext[0]);
-    }
+. { 
+    printf("Símbolo não reconhecido %c\n", yytext[0]);
+  }
 
 
 %%
@@ -51,20 +55,22 @@ int yywrap() {
     return 1;
 }
 
-int yyerror(const char *s){
-    printf("Erro de sintaxe na linha %d: %s\n", yylineno, s);
+int yyerror(const char *s) {
+    printf("Erro de sintaxe na linha %d: %s\n", 
+        yylineno, s);
     return 1;
 }
 
-int main(int argc, char *argv[]){
-
-    if(argc <=1){
-        printf("Sintaxe: %s nome_do_programa\n", argv[0]);
+int main(int argc, char *argv[]) {
+    
+    if (argc <= 1) {
+        printf("Sintaxe: %s nome_do_programa\n",
+            argv[0]);
         return 1;
     }
 
     yyin = fopen(argv[1], "r");
-    if (yyin == NULL){
+    if (yyin == NULL) {
         printf("Não foi possível abrir o arquivo %s.\n", argv[1]);
         return 1;
     }
@@ -73,6 +79,8 @@ int main(int argc, char *argv[]){
 
     if (yyin)
         fclose(yyin);
-
+    
     return 0;
 }
+
+
