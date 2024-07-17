@@ -1,5 +1,5 @@
-<h1>Trabalho 1</h1>
-<h2>Analisador léxico e sintático</h2>
+<h1>Trabalho 2</h1>
+<h2>Analisador semântico e construção de árvore sintática</h2>
 
 <h3>Dicionário</h3>
 
@@ -19,3 +19,10 @@
 <li>true: kan pai (cheers)</li>
 <li>false: bee do (fire)</li>
 </ul>
+
+<h3>Verificações de erros semânticos:</h3>
+
+<ol>
+<li>Verificação de declaração de variáveis</li>
+<li>Verificação da atribuição do tipo de scan à variàvel compatível</li>
+</ol>

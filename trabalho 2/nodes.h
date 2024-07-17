@@ -330,6 +330,10 @@ class Variable : public Node{
             return ident->getName();
         }
 
+        Ident* getIdent(){
+            return ident;
+        }
+
         void setValue(Node *v){
             value = v;
         }
@@ -363,6 +367,14 @@ class AtribuitionScan : public Node{
         AtribuitionScan(Ident *i, Node *t) : ident(i), type(t){
             /*Função que escaneia*/
             /*atribuição através do valor obtido*/
+        }
+
+        Ident* getIdent(){
+            return ident;
+        }
+
+        Node getType(){
+            return *type;
         }
 
         virtual string toStr(){
@@ -471,5 +483,8 @@ public:
             symbols.insert(var->getName());
         }
     }
-};
 
+    set<string> getSymbols(){
+        return symbols;
+    }
+};
