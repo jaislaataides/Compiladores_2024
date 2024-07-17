@@ -24,5 +24,4 @@
 
 <ol>
 <li>Verificação de declaração de variáveis</li>
-<li>Verificação da atribuição do tipo de scan à variàvel compatível</li>
 </ol>
