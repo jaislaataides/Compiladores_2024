@@ -552,12 +552,12 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int16 yyrline[] =
 {
-       0,    63,    63,    81,    85,    91,    92,    93,    94,    95,
-      97,   101,   105,   109,   113,   117,   121,   125,   129,   133,
-     137,   141,   145,   149,   153,   157,   161,   165,   169,   173,
-     177,   181,   185,   189,   193,   197,   201,   205,   209,   214,
-     217,   220,   223,   226,   229,   233,   237,   241,   245,   249,
-     253,   257,   262,   266,   267
+       0,    63,    63,    75,    79,    85,    86,    87,    88,    89,
+      91,    95,    99,   103,   107,   111,   115,   119,   123,   127,
+     131,   135,   139,   143,   147,   151,   155,   159,   163,   167,
+     171,   175,   179,   183,   187,   191,   195,   199,   203,   208,
+     211,   214,   217,   220,   223,   227,   231,   235,   239,   243,
+     247,   251,   256,   260,   261
 };
 #endif
 
@@ -1516,430 +1516,424 @@ yyreduce:
     Node *program = new Program();
     program-> append((yyvsp[0].node));
 
-    CheckVarDecl cvd;
-    cvd.check(program);
-
-    checkCompScan ccs;
-    ccs.check(program);
-
-    
-
-    if(errorcount>0)
-        cout << errorcount << " error(s) found" <<endl;
-    if(force_print_tree || errorcount ==0)
+    if (errorcount > 0)
+        cout << errorcount << " error(s) found" << endl;
+    if (force_print_tree || errorcount == 0)
         printf_tree(program);
+    else
+        cout << "Errors found, not printing the tree." << endl;
 }
-#line 1533 "sin.tab.c"
+#line 1527 "sin.tab.c"
     break;
 
   case 3: /* globals: globals global  */
-#line 81 "sin.y"
+#line 75 "sin.y"
                              {
                (yyvsp[-1].node)->append((yyvsp[0].node));
                (yyval.node) = (yyvsp[-1].node);
           }
-#line 1542 "sin.tab.c"
+#line 1536 "sin.tab.c"
     break;
 
   case 4: /* globals: global  */
-#line 85 "sin.y"
+#line 79 "sin.y"
                  {
                Node *n = new Node();
                n->append((yyvsp[0].node));
                (yyval.node) = n;
           }
-#line 1552 "sin.tab.c"
+#line 1546 "sin.tab.c"
     break;
 
   case 5: /* global: declaration  */
-#line 91 "sin.y"
+#line 85 "sin.y"
                      {(yyval.node) = (yyvsp[0].node);}
-#line 1558 "sin.tab.c"
+#line 1552 "sin.tab.c"
     break;
 
   case 6: /* global: atribuition  */
-#line 92 "sin.y"
+#line 86 "sin.y"
                   {(yyval.node) = (yyvsp[0].node);}
-#line 1564 "sin.tab.c"
+#line 1558 "sin.tab.c"
     break;
 
   case 7: /* global: loop  */
-#line 93 "sin.y"
+#line 87 "sin.y"
            {(yyval.node) = (yyvsp[0].node);}
-#line 1570 "sin.tab.c"
+#line 1564 "sin.tab.c"
     break;
 
   case 8: /* global: print  */
-#line 94 "sin.y"
+#line 88 "sin.y"
             {(yyval.node) = (yyvsp[0].node);}
-#line 1576 "sin.tab.c"
+#line 1570 "sin.tab.c"
     break;
 
   case 9: /* global: selection  */
-#line 95 "sin.y"
+#line 89 "sin.y"
                 {(yyval.node) = (yyvsp[0].node);}
-#line 1582 "sin.tab.c"
+#line 1576 "sin.tab.c"
     break;
 
   case 10: /* declaration: type TOK_IDENT '=' tok ';'  */
-#line 97 "sin.y"
+#line 91 "sin.y"
                                              {
     (yyval.node) = new Variable(new Ident((yyvsp[-3].str)), (yyvsp[-4].node), (yyvsp[-1].node)) ;
 }
-#line 1590 "sin.tab.c"
+#line 1584 "sin.tab.c"
     break;
 
   case 11: /* atribuition: TOK_IDENT '=' tok ';'  */
-#line 101 "sin.y"
+#line 95 "sin.y"
                                        {
     (yyval.node) = new Atribuition(new Ident((yyvsp[-3].str)), (yyvsp[-1].node));
 }
-#line 1598 "sin.tab.c"
+#line 1592 "sin.tab.c"
     break;
 
   case 12: /* atribuition: TOK_IDENT '=' TOK_SCAN '(' type ')' ';'  */
-#line 105 "sin.y"
+#line 99 "sin.y"
                                                          {
     (yyval.node) = new AtribuitionScan(new Ident((yyvsp[-6].str)), (yyvsp[-2].node));
 }
-#line 1606 "sin.tab.c"
+#line 1600 "sin.tab.c"
     break;
 
   case 13: /* type: TIPO_INT  */
-#line 109 "sin.y"
+#line 103 "sin.y"
                     {
     (yyval.node) = new TipoInt();
 }
-#line 1614 "sin.tab.c"
+#line 1608 "sin.tab.c"
     break;
 
   case 14: /* type: TIPO_FLOAT  */
-#line 113 "sin.y"
+#line 107 "sin.y"
                       {
     (yyval.node) = new TipoFloat();
 }
-#line 1622 "sin.tab.c"
+#line 1616 "sin.tab.c"
     break;
 
   case 15: /* type: TIPO_STRING  */
-#line 117 "sin.y"
+#line 111 "sin.y"
                        {
     (yyval.node) = new TipoString();
 }
-#line 1630 "sin.tab.c"
+#line 1624 "sin.tab.c"
     break;
 
   case 16: /* type: TIPO_BOOL  */
-#line 121 "sin.y"
+#line 115 "sin.y"
                      {
     (yyval.node) = new TipoBool();
 }
-#line 1638 "sin.tab.c"
+#line 1632 "sin.tab.c"
     break;
 
   case 17: /* type: TIPO_CHAR  */
-#line 125 "sin.y"
+#line 119 "sin.y"
                      {
     (yyval.node) = new TipoChar();
 }
-#line 1646 "sin.tab.c"
+#line 1640 "sin.tab.c"
     break;
 
   case 18: /* tok: TOK_STRING  */
-#line 129 "sin.y"
+#line 123 "sin.y"
                      {
     (yyval.node) = new String((yyvsp[0].str));
 }
-#line 1654 "sin.tab.c"
+#line 1648 "sin.tab.c"
     break;
 
   case 19: /* tok: condition  */
-#line 133 "sin.y"
+#line 127 "sin.y"
                {
     (yyval.node) = (yyvsp[0].node);
 }
-#line 1662 "sin.tab.c"
+#line 1656 "sin.tab.c"
     break;
 
   case 20: /* tok: TOK_CHAR  */
-#line 137 "sin.y"
+#line 131 "sin.y"
                    {
     (yyval.node) = new Char((yyvsp[0].chr));
 }
-#line 1670 "sin.tab.c"
+#line 1664 "sin.tab.c"
     break;
 
   case 21: /* numeric_expression: numeric_expression '+' numeric_term  */
-#line 141 "sin.y"
+#line 135 "sin.y"
                                                                 {
     (yyval.node) = new BinaryOp((yyvsp[-2].node), '+', (yyvsp[0].node));
 }
-#line 1678 "sin.tab.c"
+#line 1672 "sin.tab.c"
     break;
 
   case 22: /* numeric_expression: numeric_expression '-' numeric_term  */
-#line 145 "sin.y"
+#line 139 "sin.y"
                                                                 {
     (yyval.node) = new BinaryOp((yyvsp[-2].node), '-', (yyvsp[0].node));
 }
-#line 1686 "sin.tab.c"
+#line 1680 "sin.tab.c"
     break;
 
   case 23: /* numeric_expression: numeric_term  */
-#line 149 "sin.y"
+#line 143 "sin.y"
                                  {
     (yyval.node) = (yyvsp[0].node);
 }
-#line 1694 "sin.tab.c"
+#line 1688 "sin.tab.c"
     break;
 
   case 24: /* numeric_term: numeric_term '*' numeric_factor  */
-#line 153 "sin.y"
+#line 147 "sin.y"
                                                       {
     (yyval.node) = new BinaryOp((yyvsp[-2].node), '*', (yyvsp[0].node));
 }
-#line 1702 "sin.tab.c"
+#line 1696 "sin.tab.c"
     break;
 
   case 25: /* numeric_term: numeric_term '/' numeric_factor  */
-#line 157 "sin.y"
+#line 151 "sin.y"
                                                       {
     (yyval.node) = new BinaryOp((yyvsp[-2].node), '/', (yyvsp[0].node));
 }
-#line 1710 "sin.tab.c"
+#line 1704 "sin.tab.c"
     break;
 
   case 26: /* numeric_term: numeric_factor  */
-#line 161 "sin.y"
+#line 155 "sin.y"
                              {
     (yyval.node) = (yyvsp[0].node);
 }
-#line 1718 "sin.tab.c"
+#line 1712 "sin.tab.c"
     break;
 
   case 27: /* numeric_factor: numeric_factor '^' numeral  */
-#line 165 "sin.y"
+#line 159 "sin.y"
                                                   {
     (yyval.node) = new BinaryOp((yyvsp[-2].node), '^', (yyvsp[0].node));
 }
-#line 1726 "sin.tab.c"
+#line 1720 "sin.tab.c"
     break;
 
   case 28: /* numeric_factor: numeral  */
-#line 169 "sin.y"
+#line 163 "sin.y"
                         {
     (yyval.node) = (yyvsp[0].node);
 }
-#line 1734 "sin.tab.c"
+#line 1728 "sin.tab.c"
     break;
 
   case 29: /* numeral: '(' numeric_expression ')'  */
-#line 173 "sin.y"
+#line 167 "sin.y"
                                     {
     (yyval.node) = (yyvsp[-1].node);
 }
-#line 1742 "sin.tab.c"
+#line 1736 "sin.tab.c"
     break;
 
   case 30: /* numeral: TOK_IDENT  */
-#line 177 "sin.y"
+#line 171 "sin.y"
                         {
     (yyval.node) = new Ident((yyvsp[0].str));
 }
-#line 1750 "sin.tab.c"
+#line 1744 "sin.tab.c"
     break;
 
   case 31: /* numeral: TOK_INT  */
-#line 181 "sin.y"
+#line 175 "sin.y"
                       {
     (yyval.node) = new Integer((yyvsp[0].itg));
 }
-#line 1758 "sin.tab.c"
+#line 1752 "sin.tab.c"
     break;
 
   case 32: /* numeral: TOK_FLOAT  */
-#line 185 "sin.y"
+#line 179 "sin.y"
                         {
     (yyval.node) = new Float((yyvsp[0].flt));
 }
-#line 1766 "sin.tab.c"
+#line 1760 "sin.tab.c"
     break;
 
   case 33: /* numeral: unary  */
-#line 189 "sin.y"
+#line 183 "sin.y"
                {
     (yyval.node) = (yyvsp[0].node);
 }
-#line 1774 "sin.tab.c"
+#line 1768 "sin.tab.c"
     break;
 
   case 34: /* unary: '-' numeral  */
-#line 193 "sin.y"
+#line 187 "sin.y"
                    {
     (yyval.node) = new Unary((yyvsp[0].node), '-');
 }
-#line 1782 "sin.tab.c"
+#line 1776 "sin.tab.c"
     break;
 
   case 35: /* print: TOK_PRINT '(' numeric_expression ')' ';'  */
-#line 197 "sin.y"
+#line 191 "sin.y"
                                                {
     (yyval.node) = new PrintNode((yyvsp[-2].node));
 }
-#line 1790 "sin.tab.c"
+#line 1784 "sin.tab.c"
     break;
 
   case 36: /* print: TOK_PRINT '(' TOK_STRING ')' ';'  */
-#line 201 "sin.y"
+#line 195 "sin.y"
                                             {
     (yyval.node) = new Print((yyvsp[-2].str));
 }
-#line 1798 "sin.tab.c"
+#line 1792 "sin.tab.c"
     break;
 
   case 37: /* selection: TOK_IF '(' condition ')' '{' globals '}'  */
-#line 205 "sin.y"
+#line 199 "sin.y"
                                                     {
     (yyval.node) = new If((yyvsp[-4].node), (yyvsp[-1].node));
 }
-#line 1806 "sin.tab.c"
+#line 1800 "sin.tab.c"
     break;
 
   case 38: /* selection: TOK_IF '(' condition ')' '{' globals '}' TOK_ELSE '{' globals '}'  */
-#line 209 "sin.y"
+#line 203 "sin.y"
                                                                                               {
     (yyval.node) = new IfElse((yyvsp[-8].node), (yyvsp[-5].node), (yyvsp[-1].node));
 }
-#line 1814 "sin.tab.c"
+#line 1808 "sin.tab.c"
     break;
 
   case 39: /* condition: numeric_factor TOK_MEOI numeric_factor  */
-#line 214 "sin.y"
+#line 208 "sin.y"
                                                           {
         (yyval.node) = new BinaryOpp((yyvsp[-2].node), "<=", (yyvsp[0].node));
     }
-#line 1822 "sin.tab.c"
+#line 1816 "sin.tab.c"
     break;
 
   case 40: /* condition: numeric_factor TOK_MAOI numeric_factor  */
-#line 217 "sin.y"
+#line 211 "sin.y"
                                                      {
         (yyval.node) = new BinaryOpp((yyvsp[-2].node), ">=", (yyvsp[0].node));
     }
-#line 1830 "sin.tab.c"
+#line 1824 "sin.tab.c"
     break;
 
   case 41: /* condition: numeric_factor TOK_IGUAL numeric_factor  */
-#line 220 "sin.y"
+#line 214 "sin.y"
                                                      {
         (yyval.node) = new BinaryOpp((yyvsp[-2].node), "==", (yyvsp[0].node));
     }
-#line 1838 "sin.tab.c"
+#line 1832 "sin.tab.c"
     break;
 
   case 42: /* condition: numeric_factor TOK_DIFERENTE numeric_factor  */
-#line 223 "sin.y"
+#line 217 "sin.y"
                                                          {
         (yyval.node) = new BinaryOpp((yyvsp[-2].node), "!=", (yyvsp[0].node));
     }
-#line 1846 "sin.tab.c"
+#line 1840 "sin.tab.c"
     break;
 
   case 43: /* condition: numeric_factor '<' numeric_factor  */
-#line 226 "sin.y"
+#line 220 "sin.y"
                                                {
         (yyval.node) = new BinaryOp((yyvsp[-2].node), '<', (yyvsp[0].node));
     }
-#line 1854 "sin.tab.c"
+#line 1848 "sin.tab.c"
     break;
 
   case 44: /* condition: numeric_factor '>' numeric_factor  */
-#line 229 "sin.y"
+#line 223 "sin.y"
                                                {
         (yyval.node) = new BinaryOp((yyvsp[-2].node), '>', (yyvsp[0].node));
     }
-#line 1862 "sin.tab.c"
+#line 1856 "sin.tab.c"
     break;
 
   case 45: /* condition: '(' condition TOK_OR condition ')'  */
-#line 233 "sin.y"
+#line 227 "sin.y"
                                                       {
     (yyval.node) = new BinaryOpp((yyvsp[-3].node), "||", (yyvsp[-1].node));
 }
-#line 1870 "sin.tab.c"
+#line 1864 "sin.tab.c"
     break;
 
   case 46: /* condition: '(' condition TOK_AND condition ')'  */
-#line 237 "sin.y"
+#line 231 "sin.y"
                                                        {
     (yyval.node) = new BinaryOpp((yyvsp[-3].node), "&&", (yyvsp[-1].node));
 }
-#line 1878 "sin.tab.c"
+#line 1872 "sin.tab.c"
     break;
 
   case 47: /* condition: numeric_expression  */
-#line 241 "sin.y"
+#line 235 "sin.y"
                               {
     (yyval.node) = (yyvsp[0].node);
 }
-#line 1886 "sin.tab.c"
+#line 1880 "sin.tab.c"
     break;
 
   case 48: /* condition: bool  */
-#line 245 "sin.y"
+#line 239 "sin.y"
                 {
     (yyval.node) = (yyvsp[0].node);
 }
-#line 1894 "sin.tab.c"
+#line 1888 "sin.tab.c"
     break;
 
   case 49: /* bool: TOK_TRUE  */
-#line 249 "sin.y"
+#line 243 "sin.y"
                {
     (yyval.node) = new True();
 }
-#line 1902 "sin.tab.c"
+#line 1896 "sin.tab.c"
     break;
 
   case 50: /* bool: TOK_FALSE  */
-#line 253 "sin.y"
+#line 247 "sin.y"
                 {
     (yyval.node) = new False();
 }
-#line 1910 "sin.tab.c"
+#line 1904 "sin.tab.c"
     break;
 
   case 51: /* loop: TOK_LOOP '(' initial condition ';' numeric_expression ')' '{' globals '}'  */
-#line 257 "sin.y"
+#line 251 "sin.y"
                                                                                 {
     (yyval.node) = new LoopFor((yyvsp[-7].node), (yyvsp[-6].node), (yyvsp[-4].node), (yyvsp[-1].node));
 
 }
-#line 1919 "sin.tab.c"
+#line 1913 "sin.tab.c"
     break;
 
   case 52: /* loop: TOK_LOOP '(' condition ')' '{' globals '}'  */
-#line 262 "sin.y"
+#line 256 "sin.y"
                                                 {
     (yyval.node) = new LoopWhile((yyvsp[-4].node), (yyvsp[-1].node));
 }
-#line 1927 "sin.tab.c"
+#line 1921 "sin.tab.c"
     break;
 
   case 53: /* initial: declaration  */
-#line 266 "sin.y"
+#line 260 "sin.y"
                       {(yyval.node) = (yyvsp[0].node);}
-#line 1933 "sin.tab.c"
+#line 1927 "sin.tab.c"
     break;
 
   case 54: /* initial: atribuition  */
-#line 267 "sin.y"
+#line 261 "sin.y"
                  {(yyval.node) = (yyvsp[0].node);}
-#line 1939 "sin.tab.c"
+#line 1933 "sin.tab.c"
     break;
 
 
-#line 1943 "sin.tab.c"
+#line 1937 "sin.tab.c"
 
       default: break;
     }
@@ -2163,4 +2157,4 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 269 "sin.y"
+#line 263 "sin.y"

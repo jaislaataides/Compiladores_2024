@@ -1,28 +1,14 @@
-//if else 
-chasy (A < 3) {
-    //print
-    gru (A);
-}ditto{
-    gru(''Maior que 3'');
+nah a = kan pai;
+nah b = bee do;
+
+chasy(a) {
+    gru(''A e true'');
+} ditto {
+    gru(''A e false'');
 }
 
-//loop 
-pwede(A){
-    gru (''true'');
-}
-
-pwede((B < 3 || B > 5)){
-    gru (''3 4 e 5 fora'');
-}
-
-pwede (dul i = 0; i < 3; 1){
-    gru (C);
-}
-
-pwede (i = 0; i < 3; -2){
-    gru (C);
-}
-
-pwede (i = 1; i < 3; 3){
-    gru (C);
+chasy(b) {
+    gru(''B e true'');
+} ditto {
+    gru(''B e false'');
 }

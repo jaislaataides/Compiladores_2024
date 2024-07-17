@@ -1,15 +1,9 @@
-//operadores lógicos e expressões
-
-chasy(A < 1){gru ("menor que");}
-chasy(A > 1){gru ("maior que");}
-chasy(A <= 1){gru ("menor ou igual");}
-chasy(A >= 1){gru ("maior ou igual");}
-chasy(A != 1){gru ("diferente");}
-chasy(A == 1){gru ("igual");}
-
-chasy((A == 1 && B <= 3)){gru ("AND");}
-chasy((B == 1 || C < 4)){gru ("OR");}
-
-chasy((A == B && A < 3) || (A == B && A < 3)){
-    gru (A);
+dul n = 5;
+dul soma = 0;
+pwede(dul i = 1; i <= n; i = i + 1) {
+    soma = soma + i;
 }
+
+gru(''Digite um numero inteiro'');
+baboi(dul num);
+gru(''Voce digitou '');

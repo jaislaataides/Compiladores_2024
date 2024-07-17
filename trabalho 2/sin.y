@@ -67,11 +67,13 @@ program : globals {
     CheckVarDecl cvd;
     cvd.check(program);
 
-    if(errorcount>0)
-        cout << errorcount << " error(s) found" <<endl;
-    if(force_print_tree || errorcount ==0)
+    if (errorcount > 0)
+        cout << errorcount << " error(s) found" << endl;
+    if (force_print_tree || errorcount == 0)
         printf_tree(program);
-} ;
+    else
+        cout << "Errors found, not printing the tree." << endl;
+}
 
 globals : globals[gg] global {
                $gg->append($global);
