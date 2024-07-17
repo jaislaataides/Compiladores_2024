@@ -163,7 +163,7 @@ enum yysymbol_kind_t
   YYSYMBOL_condition = 55,                 /* condition  */
   YYSYMBOL_bool = 56,                      /* bool  */
   YYSYMBOL_loop = 57,                      /* loop  */
-  YYSYMBOL_inital = 58                     /* inital  */
+  YYSYMBOL_initial = 58                    /* initial  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 
@@ -491,16 +491,16 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  23
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   240
+#define YYLAST   207
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  40
 /* YYNNTS -- Number of nonterminals.  */
 #define YYNNTS  19
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  55
+#define YYNRULES  54
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  119
+#define YYNSTATES  118
 
 /* YYMAXUTOK -- Last valid token kind.  */
 #define YYMAXUTOK   281
@@ -552,12 +552,12 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int16 yyrline[] =
 {
-       0,    63,    63,    70,    74,    80,    81,    82,    83,    84,
-      86,    90,    94,    98,   102,   106,   110,   114,   118,   122,
-     126,   130,   134,   138,   142,   146,   150,   154,   158,   162,
-     166,   170,   174,   178,   182,   186,   190,   194,   198,   202,
-     207,   210,   213,   216,   219,   222,   226,   230,   234,   238,
-     242,   246,   250,   254,   258,   259
+       0,    63,    63,    76,    80,    86,    87,    88,    89,    90,
+      92,    96,   100,   104,   108,   112,   116,   120,   124,   128,
+     132,   136,   140,   144,   148,   152,   156,   160,   164,   168,
+     172,   176,   180,   184,   188,   192,   196,   200,   204,   209,
+     212,   215,   218,   221,   224,   228,   232,   236,   240,   244,
+     248,   252,   257,   261,   262
 };
 #endif
 
@@ -582,7 +582,7 @@ static const char *const yytname[] =
   "'*'", "'/'", "'^'", "'{'", "'}'", "'<'", "'>'", "$accept", "program",
   "globals", "global", "declaration", "atribuition", "type", "tok",
   "numeric_expression", "numeric_term", "numeric_factor", "numeral",
-  "unary", "print", "selection", "condition", "bool", "loop", "inital", YY_NULLPTR
+  "unary", "print", "selection", "condition", "bool", "loop", "initial", YY_NULLPTR
 };
 
 static const char *
@@ -592,7 +592,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-92)
+#define YYPACT_NINF (-89)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -606,18 +606,18 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int16 yypact[] =
 {
-     185,   -17,   -16,   -14,     4,   -92,   -92,   -92,   -92,   -92,
-      41,   185,   -92,   -92,   -92,    47,   -92,   -92,   -92,   139,
-     184,   171,     5,   -92,   -92,   -10,   -92,    32,   -92,   -92,
-     -92,   -92,   -92,   -92,   171,   103,    40,    -7,    36,   201,
-     -92,   -92,   -92,   -92,    55,   103,     8,    53,    59,   -17,
-     -92,   -92,    61,   171,   152,   -92,    33,    35,    60,   -92,
-     -92,   103,   103,   103,   103,   103,   103,   103,   103,   103,
-     103,   103,    43,    35,    62,    66,    71,    80,    84,    90,
-     -92,   171,   171,    36,    36,    53,    53,    53,    53,    53,
-      53,   -92,    53,    53,   -92,   -92,   185,   185,   103,   -92,
-      93,    92,    94,    50,    74,   -21,   -92,   -92,   -92,   112,
-     -92,    95,    97,   185,   185,    91,   115,   -92,   -92
+     152,   -24,    20,    31,    33,   -89,   -89,   -89,   -89,   -89,
+      10,   152,   -89,   -89,   -89,    81,   -89,   -89,   -89,   138,
+     165,     8,     6,   -89,   -89,    74,   -89,    77,   -89,   -89,
+     -89,   -89,   -89,   -89,     8,   102,    79,   -13,     0,   168,
+     -89,   -89,   -89,   -89,    89,   102,    35,    76,    91,   -24,
+     -89,   -89,    92,     8,   151,    32,    38,    67,   -89,   -89,
+     102,   102,   102,   102,   102,   102,   102,   102,   102,   102,
+     102,    95,    38,    97,    84,    93,   100,   104,   103,   -89,
+       8,     8,     0,     0,    76,    76,    76,    76,    76,    76,
+     -89,    76,    76,   -89,   -89,   152,   152,   102,   -89,   107,
+     112,   118,    49,    73,    50,   -89,   -89,   -89,   119,   -89,
+     113,   125,   152,   152,    90,   114,   -89,   -89
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -625,25 +625,25 @@ static const yytype_int16 yypact[] =
    means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       0,     0,     0,     0,     0,    14,    15,    16,    18,    17,
+       0,     0,     0,     0,     0,    13,    14,    15,    17,    16,
        0,     2,     4,     5,     6,     0,     8,     9,     7,     0,
-       0,     0,     0,     1,     3,     0,    31,     0,    32,    33,
-      19,    21,    50,    51,     0,     0,     0,    48,    24,    27,
-      29,    34,    20,    49,     0,     0,     0,    27,     0,    31,
-      54,    55,     0,     0,     0,    11,     0,    48,     0,    35,
-      12,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+       0,     0,     0,     1,     3,     0,    30,     0,    31,    32,
+      18,    20,    49,    50,     0,     0,     0,    47,    23,    26,
+      28,    33,    19,    48,     0,     0,     0,    26,     0,    30,
+      53,    54,     0,     0,     0,     0,    47,     0,    34,    11,
        0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
-      30,     0,     0,    22,    23,    25,    26,    42,    43,    40,
-      41,    28,    44,    45,    37,    36,     0,     0,     0,    10,
-       0,     0,     0,     0,     0,     0,    13,    46,    47,    38,
-      53,     0,     0,     0,     0,     0,     0,    52,    39
+       0,     0,     0,     0,     0,     0,     0,     0,     0,    29,
+       0,     0,    21,    22,    24,    25,    41,    42,    39,    40,
+      27,    43,    44,    36,    35,     0,     0,     0,    10,     0,
+       0,     0,     0,     0,     0,    12,    45,    46,    37,    52,
+       0,     0,     0,     0,     0,     0,    51,    38
 };
 
 /* YYPGOTO[NTERM-NUM].  */
-static const yytype_int8 yypgoto[] =
+static const yytype_int16 yypgoto[] =
 {
-     -92,   -92,   -91,   -11,   104,   107,    78,    76,   -13,    21,
-     -19,   -33,   -92,   -92,   -92,   -18,   -92,   -92,   -92
+     -89,   -89,   -88,   -11,   128,   141,   124,   115,   -18,    29,
+     -19,   -29,   -89,   -89,   -89,   -17,   -89,   -89,   -89
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
@@ -658,60 +658,52 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-      24,    47,    59,    48,    52,   103,   104,    46,    49,   111,
-      19,    28,    29,    20,    69,    21,    58,    54,    55,    32,
-      33,    57,   115,   116,    61,    62,    47,     5,     6,     7,
-       8,     9,    73,    22,    34,    77,    91,    35,    74,    61,
-      62,    23,    47,    47,    85,    86,    87,    88,    89,    90,
-      25,    92,    93,     1,     2,     5,     6,     7,     8,     9,
-       3,    56,     4,   101,   102,    80,    61,    62,    60,    63,
-      64,    94,     5,     6,     7,     8,     9,     1,     2,   105,
-      81,    82,    83,    84,     3,    72,     4,   109,    69,    75,
-      95,    76,    24,    24,     1,     2,     5,     6,     7,     8,
-       9,     3,    96,     4,    24,    24,    26,    97,    98,    28,
-      29,   110,    99,     5,     6,     7,     8,     9,     1,     2,
-     100,   106,   107,   112,   108,     3,    50,     4,   117,    51,
-      78,   113,    45,   114,    79,    35,     0,     5,     6,     7,
-       8,     9,    26,     0,    27,    28,    29,    30,    31,     0,
-       0,     0,   118,    32,    33,    26,     0,     0,    28,    29,
-      30,    31,     0,     0,     0,     0,    32,    33,    34,     0,
-       0,    35,     0,     0,    26,     0,     0,    28,    29,     0,
-       0,    34,     0,     0,    35,    32,    33,    26,     1,     2,
-      28,    29,    44,     0,     0,     3,     0,     4,     0,     0,
-      34,     0,     0,    35,     0,     0,     0,     5,     6,     7,
-       8,     9,     0,    45,     0,     0,    35,    65,    66,    67,
-      68,     0,     0,     0,     0,     0,     0,     0,     0,     0,
-       0,     0,     0,     0,     0,     0,    69,     0,     0,    70,
-      71
+      24,    47,    46,    19,    48,    52,    58,   102,   103,    49,
+      23,    26,    28,    29,    28,    29,    56,    57,    60,    61,
+      32,    33,    32,    33,   114,   115,    47,    72,     5,     6,
+       7,     8,     9,    62,    63,    34,    76,    34,    35,    90,
+      35,    47,    47,    84,    85,    86,    87,    88,    89,    20,
+      91,    92,     1,     2,     5,     6,     7,     8,     9,     3,
+      21,     4,    22,   100,   101,    73,    60,    61,    79,    60,
+      61,     5,     6,     7,     8,     9,     1,     2,    47,   104,
+     110,    60,    61,     3,    25,     4,   108,    80,    81,    82,
+      83,    24,    24,     1,     2,     5,     6,     7,     8,     9,
+       3,    54,     4,    24,    24,    26,    55,    59,    28,    29,
+     109,    68,     5,     6,     7,     8,     9,     1,     2,    71,
+      95,    74,    75,    93,     3,    94,     4,   116,    97,    96,
+     111,    45,    98,    99,    35,   105,     5,     6,     7,     8,
+       9,    26,   106,    27,    28,    29,    30,    31,   107,   112,
+      50,   117,    32,    33,    26,     1,     2,    28,    29,    30,
+      31,   113,     3,    51,     4,    32,    33,    34,    26,    77,
+      35,    28,    29,    44,     5,     6,     7,     8,     9,    78,
+      34,     0,     0,    35,    64,    65,    66,    67,     0,     0,
+       0,     0,     0,     0,    45,     0,     0,    35,     0,     0,
+       0,     0,     0,    68,     0,     0,    69,    70
 };
 
 static const yytype_int8 yycheck[] =
 {
-      11,    20,    35,    21,    22,    96,    97,    20,     3,    30,
-      27,     6,     7,    29,    35,    29,    34,    27,    28,    14,
-      15,    34,   113,   114,    31,    32,    45,    22,    23,    24,
-      25,    26,    45,    29,    29,    53,    69,    32,    30,    31,
-      32,     0,    61,    62,    63,    64,    65,    66,    67,    68,
-       3,    70,    71,     3,     4,    22,    23,    24,    25,    26,
-      10,    29,    12,    81,    82,    30,    31,    32,    28,    33,
-      34,    28,    22,    23,    24,    25,    26,     3,     4,    98,
-      20,    21,    61,    62,    10,    30,    12,    37,    35,    30,
-      28,    30,   103,   104,     3,     4,    22,    23,    24,    25,
-      26,    10,    36,    12,   115,   116,     3,    36,    28,     6,
-       7,    37,    28,    22,    23,    24,    25,    26,     3,     4,
-      30,    28,    30,    11,    30,    10,    22,    12,    37,    22,
-      54,    36,    29,    36,    56,    32,    -1,    22,    23,    24,
-      25,    26,     3,    -1,     5,     6,     7,     8,     9,    -1,
-      -1,    -1,    37,    14,    15,     3,    -1,    -1,     6,     7,
-       8,     9,    -1,    -1,    -1,    -1,    14,    15,    29,    -1,
-      -1,    32,    -1,    -1,     3,    -1,    -1,     6,     7,    -1,
-      -1,    29,    -1,    -1,    32,    14,    15,     3,     3,     4,
-       6,     7,     8,    -1,    -1,    10,    -1,    12,    -1,    -1,
-      29,    -1,    -1,    32,    -1,    -1,    -1,    22,    23,    24,
-      25,    26,    -1,    29,    -1,    -1,    32,    16,    17,    18,
-      19,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,
-      -1,    -1,    -1,    -1,    -1,    -1,    35,    -1,    -1,    38,
-      39
+      11,    20,    20,    27,    21,    22,    35,    95,    96,     3,
+       0,     3,     6,     7,     6,     7,    34,    34,    31,    32,
+      14,    15,    14,    15,   112,   113,    45,    45,    22,    23,
+      24,    25,    26,    33,    34,    29,    53,    29,    32,    68,
+      32,    60,    61,    62,    63,    64,    65,    66,    67,    29,
+      69,    70,     3,     4,    22,    23,    24,    25,    26,    10,
+      29,    12,    29,    80,    81,    30,    31,    32,    30,    31,
+      32,    22,    23,    24,    25,    26,     3,     4,    97,    97,
+      30,    31,    32,    10,     3,    12,    37,    20,    21,    60,
+      61,   102,   103,     3,     4,    22,    23,    24,    25,    26,
+      10,    27,    12,   114,   115,     3,    29,    28,     6,     7,
+      37,    35,    22,    23,    24,    25,    26,     3,     4,    30,
+      36,    30,    30,    28,    10,    28,    12,    37,    28,    36,
+      11,    29,    28,    30,    32,    28,    22,    23,    24,    25,
+      26,     3,    30,     5,     6,     7,     8,     9,    30,    36,
+      22,    37,    14,    15,     3,     3,     4,     6,     7,     8,
+       9,    36,    10,    22,    12,    14,    15,    29,     3,    54,
+      32,     6,     7,     8,    22,    23,    24,    25,    26,    55,
+      29,    -1,    -1,    32,    16,    17,    18,    19,    -1,    -1,
+      -1,    -1,    -1,    -1,    29,    -1,    -1,    32,    -1,    -1,
+      -1,    -1,    -1,    35,    -1,    -1,    38,    39
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
@@ -723,35 +715,35 @@ static const yytype_int8 yystos[] =
       29,    29,    29,     0,    43,     3,     3,     5,     6,     7,
        8,     9,    14,    15,    29,    32,    47,    48,    49,    50,
       51,    52,    55,    56,     8,    29,    48,    50,    55,     3,
-      44,    45,    55,    58,    27,    28,    29,    48,    55,    51,
-      28,    31,    32,    33,    34,    16,    17,    18,    19,    35,
-      38,    39,    30,    48,    30,    30,    30,    55,    47,    46,
-      30,    20,    21,    49,    49,    50,    50,    50,    50,    50,
-      50,    51,    50,    50,    28,    28,    36,    36,    28,    28,
-      30,    55,    55,    42,    42,    50,    28,    30,    30,    37,
-      37,    30,    11,    36,    36,    42,    42,    37,    37
+      44,    45,    55,    58,    27,    29,    48,    55,    51,    28,
+      31,    32,    33,    34,    16,    17,    18,    19,    35,    38,
+      39,    30,    48,    30,    30,    30,    55,    47,    46,    30,
+      20,    21,    49,    49,    50,    50,    50,    50,    50,    50,
+      51,    50,    50,    28,    28,    36,    36,    28,    28,    30,
+      55,    55,    42,    42,    48,    28,    30,    30,    37,    37,
+      30,    11,    36,    36,    42,    42,    37,    37
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
        0,    40,    41,    42,    42,    43,    43,    43,    43,    43,
-      44,    44,    45,    45,    46,    46,    46,    46,    46,    47,
-      47,    47,    48,    48,    48,    49,    49,    49,    50,    50,
-      51,    51,    51,    51,    51,    52,    53,    53,    54,    54,
-      55,    55,    55,    55,    55,    55,    55,    55,    55,    55,
-      56,    56,    57,    57,    58,    58
+      44,    45,    45,    46,    46,    46,    46,    46,    47,    47,
+      47,    48,    48,    48,    49,    49,    49,    50,    50,    51,
+      51,    51,    51,    51,    52,    53,    53,    54,    54,    55,
+      55,    55,    55,    55,    55,    55,    55,    55,    55,    56,
+      56,    57,    57,    58,    58
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
        0,     2,     1,     2,     1,     1,     1,     1,     1,     1,
-       5,     3,     4,     7,     1,     1,     1,     1,     1,     1,
-       1,     1,     3,     3,     1,     3,     3,     1,     3,     1,
-       3,     1,     1,     1,     1,     2,     5,     5,     7,    11,
-       3,     3,     3,     3,     3,     3,     5,     5,     1,     1,
-       1,     1,    10,     7,     1,     1
+       5,     4,     7,     1,     1,     1,     1,     1,     1,     1,
+       1,     3,     3,     1,     3,     3,     1,     3,     1,     3,
+       1,     1,     1,     1,     2,     5,     5,     7,    11,     3,
+       3,     3,     3,     3,     3,     5,     5,     1,     1,     1,
+       1,    10,     7,     1,     1
 };
 
 
@@ -837,31 +829,31 @@ yy_symbol_value_print (FILE *yyo,
     case YYSYMBOL_TOK_IDENT: /* TOK_IDENT  */
 #line 55 "sin.y"
          { fprintf(yyo, "%s", ((*yyvaluep).str));}
-#line 841 "sin.tab.c"
+#line 833 "sin.tab.c"
         break;
 
     case YYSYMBOL_TOK_SCAN: /* TOK_SCAN  */
 #line 55 "sin.y"
          { fprintf(yyo, "%s", ((*yyvaluep).str));}
-#line 847 "sin.tab.c"
+#line 839 "sin.tab.c"
         break;
 
     case YYSYMBOL_TOK_INT: /* TOK_INT  */
 #line 56 "sin.y"
          { fprintf(yyo, "%d", ((*yyvaluep).itg));}
-#line 853 "sin.tab.c"
+#line 845 "sin.tab.c"
         break;
 
     case YYSYMBOL_TOK_FLOAT: /* TOK_FLOAT  */
 #line 57 "sin.y"
          { fprintf(yyo, "%f", ((*yyvaluep).flt));}
-#line 859 "sin.tab.c"
+#line 851 "sin.tab.c"
         break;
 
     case YYSYMBOL_TOK_STRING: /* TOK_STRING  */
 #line 55 "sin.y"
          { fprintf(yyo, "%s", ((*yyvaluep).str));}
-#line 865 "sin.tab.c"
+#line 857 "sin.tab.c"
         break;
 
       default:
@@ -1524,426 +1516,425 @@ yyreduce:
     Node *program = new Program();
     program-> append((yyvsp[0].node));
 
+    CheckVarDecl cvd;
+    cvd.check(program);
 
+    if(errorcount>0)
+        cout << errorcount << " error(s) found" <<endl;
+    if(force_print_tree || errorcount ==0)
+        printf_tree(program);
 }
-#line 1530 "sin.tab.c"
+#line 1528 "sin.tab.c"
     break;
 
   case 3: /* globals: globals global  */
-#line 70 "sin.y"
+#line 76 "sin.y"
                              {
                (yyvsp[-1].node)->append((yyvsp[0].node));
                (yyval.node) = (yyvsp[-1].node);
           }
-#line 1539 "sin.tab.c"
+#line 1537 "sin.tab.c"
     break;
 
   case 4: /* globals: global  */
-#line 74 "sin.y"
+#line 80 "sin.y"
                  {
                Node *n = new Node();
                n->append((yyvsp[0].node));
                (yyval.node) = n;
           }
-#line 1549 "sin.tab.c"
+#line 1547 "sin.tab.c"
     break;
 
   case 5: /* global: declaration  */
-#line 80 "sin.y"
+#line 86 "sin.y"
                      {(yyval.node) = (yyvsp[0].node);}
-#line 1555 "sin.tab.c"
+#line 1553 "sin.tab.c"
     break;
 
   case 6: /* global: atribuition  */
-#line 81 "sin.y"
+#line 87 "sin.y"
                   {(yyval.node) = (yyvsp[0].node);}
-#line 1561 "sin.tab.c"
+#line 1559 "sin.tab.c"
     break;
 
   case 7: /* global: loop  */
-#line 82 "sin.y"
+#line 88 "sin.y"
            {(yyval.node) = (yyvsp[0].node);}
-#line 1567 "sin.tab.c"
+#line 1565 "sin.tab.c"
     break;
 
   case 8: /* global: print  */
-#line 83 "sin.y"
+#line 89 "sin.y"
             {(yyval.node) = (yyvsp[0].node);}
-#line 1573 "sin.tab.c"
+#line 1571 "sin.tab.c"
     break;
 
   case 9: /* global: selection  */
-#line 84 "sin.y"
+#line 90 "sin.y"
                 {(yyval.node) = (yyvsp[0].node);}
-#line 1579 "sin.tab.c"
+#line 1577 "sin.tab.c"
     break;
 
   case 10: /* declaration: type TOK_IDENT '=' tok ';'  */
-#line 86 "sin.y"
+#line 92 "sin.y"
                                              {
     (yyval.node) = new Variable(new Ident((yyvsp[-3].str)), (yyvsp[-4].node), (yyvsp[-1].node)) ;
 }
-#line 1587 "sin.tab.c"
+#line 1585 "sin.tab.c"
     break;
 
-  case 11: /* declaration: type TOK_IDENT ';'  */
-#line 90 "sin.y"
-                                     {
-    (yyval.node) = new Variable(new Ident((yyvsp[-1].str)), (yyvsp[-2].node));
-}
-#line 1595 "sin.tab.c"
-    break;
-
-  case 12: /* atribuition: TOK_IDENT '=' tok ';'  */
-#line 94 "sin.y"
+  case 11: /* atribuition: TOK_IDENT '=' tok ';'  */
+#line 96 "sin.y"
                                        {
-    (yyval.node) = new Atribuition(searchVar((yyvsp[-3].str)), (yyvsp[-1].node));
+    (yyval.node) = new Atribuition(new Ident((yyvsp[-3].str)), (yyvsp[-1].node));
 }
-#line 1603 "sin.tab.c"
+#line 1593 "sin.tab.c"
     break;
 
-  case 13: /* atribuition: TOK_IDENT '=' TOK_SCAN '(' type ')' ';'  */
-#line 98 "sin.y"
+  case 12: /* atribuition: TOK_IDENT '=' TOK_SCAN '(' type ')' ';'  */
+#line 100 "sin.y"
                                                          {
-    (yyval.node) = new Atribuition(searchVar((yyvsp[-6].str)), (yyvsp[-2].node), );
+    (yyval.node) = new AtribuitionScan(new Ident((yyvsp[-6].str)), (yyvsp[-2].node));
 }
-#line 1611 "sin.tab.c"
+#line 1601 "sin.tab.c"
     break;
 
-  case 14: /* type: TIPO_INT  */
-#line 102 "sin.y"
+  case 13: /* type: TIPO_INT  */
+#line 104 "sin.y"
                     {
     (yyval.node) = new TipoInt();
 }
-#line 1619 "sin.tab.c"
+#line 1609 "sin.tab.c"
     break;
 
-  case 15: /* type: TIPO_FLOAT  */
-#line 106 "sin.y"
+  case 14: /* type: TIPO_FLOAT  */
+#line 108 "sin.y"
                       {
     (yyval.node) = new TipoFloat();
 }
-#line 1627 "sin.tab.c"
+#line 1617 "sin.tab.c"
     break;
 
-  case 16: /* type: TIPO_STRING  */
-#line 110 "sin.y"
+  case 15: /* type: TIPO_STRING  */
+#line 112 "sin.y"
                        {
     (yyval.node) = new TipoString();
 }
-#line 1635 "sin.tab.c"
+#line 1625 "sin.tab.c"
     break;
 
-  case 17: /* type: TIPO_BOOL  */
-#line 114 "sin.y"
+  case 16: /* type: TIPO_BOOL  */
+#line 116 "sin.y"
                      {
     (yyval.node) = new TipoBool();
 }
-#line 1643 "sin.tab.c"
+#line 1633 "sin.tab.c"
     break;
 
-  case 18: /* type: TIPO_CHAR  */
-#line 118 "sin.y"
+  case 17: /* type: TIPO_CHAR  */
+#line 120 "sin.y"
                      {
     (yyval.node) = new TipoChar();
 }
-#line 1651 "sin.tab.c"
+#line 1641 "sin.tab.c"
     break;
 
-  case 19: /* tok: TOK_STRING  */
-#line 122 "sin.y"
+  case 18: /* tok: TOK_STRING  */
+#line 124 "sin.y"
                      {
     (yyval.node) = new String((yyvsp[0].str));
 }
-#line 1659 "sin.tab.c"
+#line 1649 "sin.tab.c"
     break;
 
-  case 20: /* tok: condition  */
-#line 126 "sin.y"
+  case 19: /* tok: condition  */
+#line 128 "sin.y"
                {
     (yyval.node) = (yyvsp[0].node);
 }
-#line 1667 "sin.tab.c"
+#line 1657 "sin.tab.c"
     break;
 
-  case 21: /* tok: TOK_CHAR  */
-#line 130 "sin.y"
+  case 20: /* tok: TOK_CHAR  */
+#line 132 "sin.y"
                    {
     (yyval.node) = new Char((yyvsp[0].chr));
 }
-#line 1675 "sin.tab.c"
+#line 1665 "sin.tab.c"
     break;
 
-  case 22: /* numeric_expression: numeric_expression '+' numeric_term  */
-#line 134 "sin.y"
+  case 21: /* numeric_expression: numeric_expression '+' numeric_term  */
+#line 136 "sin.y"
                                                                 {
     (yyval.node) = new BinaryOp((yyvsp[-2].node), '+', (yyvsp[0].node));
 }
-#line 1683 "sin.tab.c"
+#line 1673 "sin.tab.c"
     break;
 
-  case 23: /* numeric_expression: numeric_expression '-' numeric_term  */
-#line 138 "sin.y"
+  case 22: /* numeric_expression: numeric_expression '-' numeric_term  */
+#line 140 "sin.y"
                                                                 {
     (yyval.node) = new BinaryOp((yyvsp[-2].node), '-', (yyvsp[0].node));
 }
-#line 1691 "sin.tab.c"
+#line 1681 "sin.tab.c"
     break;
 
-  case 24: /* numeric_expression: numeric_term  */
-#line 142 "sin.y"
+  case 23: /* numeric_expression: numeric_term  */
+#line 144 "sin.y"
                                  {
     (yyval.node) = (yyvsp[0].node);
 }
-#line 1699 "sin.tab.c"
+#line 1689 "sin.tab.c"
     break;
 
-  case 25: /* numeric_term: numeric_term '*' numeric_factor  */
-#line 146 "sin.y"
+  case 24: /* numeric_term: numeric_term '*' numeric_factor  */
+#line 148 "sin.y"
                                                       {
     (yyval.node) = new BinaryOp((yyvsp[-2].node), '*', (yyvsp[0].node));
 }
-#line 1707 "sin.tab.c"
+#line 1697 "sin.tab.c"
     break;
 
-  case 26: /* numeric_term: numeric_term '/' numeric_factor  */
-#line 150 "sin.y"
+  case 25: /* numeric_term: numeric_term '/' numeric_factor  */
+#line 152 "sin.y"
                                                       {
     (yyval.node) = new BinaryOp((yyvsp[-2].node), '/', (yyvsp[0].node));
 }
-#line 1715 "sin.tab.c"
+#line 1705 "sin.tab.c"
     break;
 
-  case 27: /* numeric_term: numeric_factor  */
-#line 154 "sin.y"
+  case 26: /* numeric_term: numeric_factor  */
+#line 156 "sin.y"
                              {
     (yyval.node) = (yyvsp[0].node);
 }
-#line 1723 "sin.tab.c"
+#line 1713 "sin.tab.c"
     break;
 
-  case 28: /* numeric_factor: numeric_factor '^' numeral  */
-#line 158 "sin.y"
+  case 27: /* numeric_factor: numeric_factor '^' numeral  */
+#line 160 "sin.y"
                                                   {
     (yyval.node) = new BinaryOp((yyvsp[-2].node), '^', (yyvsp[0].node));
 }
-#line 1731 "sin.tab.c"
+#line 1721 "sin.tab.c"
     break;
 
-  case 29: /* numeric_factor: numeral  */
-#line 162 "sin.y"
+  case 28: /* numeric_factor: numeral  */
+#line 164 "sin.y"
                         {
     (yyval.node) = (yyvsp[0].node);
 }
-#line 1739 "sin.tab.c"
+#line 1729 "sin.tab.c"
     break;
 
-  case 30: /* numeral: '(' numeric_expression ')'  */
-#line 166 "sin.y"
+  case 29: /* numeral: '(' numeric_expression ')'  */
+#line 168 "sin.y"
                                     {
     (yyval.node) = (yyvsp[-1].node);
 }
-#line 1747 "sin.tab.c"
+#line 1737 "sin.tab.c"
     break;
 
-  case 31: /* numeral: TOK_IDENT  */
-#line 170 "sin.y"
+  case 30: /* numeral: TOK_IDENT  */
+#line 172 "sin.y"
                         {
     (yyval.node) = new Ident((yyvsp[0].str));
 }
-#line 1755 "sin.tab.c"
+#line 1745 "sin.tab.c"
     break;
 
-  case 32: /* numeral: TOK_INT  */
-#line 174 "sin.y"
+  case 31: /* numeral: TOK_INT  */
+#line 176 "sin.y"
                       {
     (yyval.node) = new Integer((yyvsp[0].itg));
 }
-#line 1763 "sin.tab.c"
+#line 1753 "sin.tab.c"
     break;
 
-  case 33: /* numeral: TOK_FLOAT  */
-#line 178 "sin.y"
+  case 32: /* numeral: TOK_FLOAT  */
+#line 180 "sin.y"
                         {
     (yyval.node) = new Float((yyvsp[0].flt));
 }
-#line 1771 "sin.tab.c"
+#line 1761 "sin.tab.c"
     break;
 
-  case 34: /* numeral: unary  */
-#line 182 "sin.y"
+  case 33: /* numeral: unary  */
+#line 184 "sin.y"
                {
     (yyval.node) = (yyvsp[0].node);
 }
-#line 1779 "sin.tab.c"
+#line 1769 "sin.tab.c"
     break;
 
-  case 35: /* unary: '-' numeral  */
-#line 186 "sin.y"
-                      {
+  case 34: /* unary: '-' numeral  */
+#line 188 "sin.y"
+                   {
     (yyval.node) = new Unary((yyvsp[0].node), '-');
 }
-#line 1787 "sin.tab.c"
+#line 1777 "sin.tab.c"
     break;
 
-  case 36: /* print: TOK_PRINT '(' numeric_expression ')' ';'  */
-#line 190 "sin.y"
+  case 35: /* print: TOK_PRINT '(' numeric_expression ')' ';'  */
+#line 192 "sin.y"
                                                {
     (yyval.node) = new PrintNode((yyvsp[-2].node));
 }
-#line 1795 "sin.tab.c"
+#line 1785 "sin.tab.c"
     break;
 
-  case 37: /* print: TOK_PRINT '(' TOK_STRING ')' ';'  */
-#line 194 "sin.y"
+  case 36: /* print: TOK_PRINT '(' TOK_STRING ')' ';'  */
+#line 196 "sin.y"
                                             {
     (yyval.node) = new Print((yyvsp[-2].str));
 }
-#line 1803 "sin.tab.c"
+#line 1793 "sin.tab.c"
     break;
 
-  case 38: /* selection: TOK_IF '(' condition ')' '{' globals '}'  */
-#line 198 "sin.y"
+  case 37: /* selection: TOK_IF '(' condition ')' '{' globals '}'  */
+#line 200 "sin.y"
                                                     {
     (yyval.node) = new If((yyvsp[-4].node), (yyvsp[-1].node));
 }
-#line 1811 "sin.tab.c"
+#line 1801 "sin.tab.c"
     break;
 
-  case 39: /* selection: TOK_IF '(' condition ')' '{' globals '}' TOK_ELSE '{' globals '}'  */
-#line 202 "sin.y"
+  case 38: /* selection: TOK_IF '(' condition ')' '{' globals '}' TOK_ELSE '{' globals '}'  */
+#line 204 "sin.y"
                                                                                               {
     (yyval.node) = new IfElse((yyvsp[-8].node), (yyvsp[-5].node), (yyvsp[-1].node));
 }
-#line 1819 "sin.tab.c"
+#line 1809 "sin.tab.c"
     break;
 
-  case 40: /* condition: numeric_factor TOK_MEOI numeric_factor  */
-#line 207 "sin.y"
+  case 39: /* condition: numeric_factor TOK_MEOI numeric_factor  */
+#line 209 "sin.y"
                                                           {
         (yyval.node) = new BinaryOpp((yyvsp[-2].node), "<=", (yyvsp[0].node));
     }
-#line 1827 "sin.tab.c"
+#line 1817 "sin.tab.c"
     break;
 
-  case 41: /* condition: numeric_factor TOK_MAOI numeric_factor  */
-#line 210 "sin.y"
+  case 40: /* condition: numeric_factor TOK_MAOI numeric_factor  */
+#line 212 "sin.y"
                                                      {
         (yyval.node) = new BinaryOpp((yyvsp[-2].node), ">=", (yyvsp[0].node));
     }
-#line 1835 "sin.tab.c"
+#line 1825 "sin.tab.c"
     break;
 
-  case 42: /* condition: numeric_factor TOK_IGUAL numeric_factor  */
-#line 213 "sin.y"
+  case 41: /* condition: numeric_factor TOK_IGUAL numeric_factor  */
+#line 215 "sin.y"
                                                      {
         (yyval.node) = new BinaryOpp((yyvsp[-2].node), "==", (yyvsp[0].node));
     }
-#line 1843 "sin.tab.c"
+#line 1833 "sin.tab.c"
     break;
 
-  case 43: /* condition: numeric_factor TOK_DIFERENTE numeric_factor  */
-#line 216 "sin.y"
+  case 42: /* condition: numeric_factor TOK_DIFERENTE numeric_factor  */
+#line 218 "sin.y"
                                                          {
         (yyval.node) = new BinaryOpp((yyvsp[-2].node), "!=", (yyvsp[0].node));
     }
-#line 1851 "sin.tab.c"
+#line 1841 "sin.tab.c"
     break;
 
-  case 44: /* condition: numeric_factor '<' numeric_factor  */
-#line 219 "sin.y"
+  case 43: /* condition: numeric_factor '<' numeric_factor  */
+#line 221 "sin.y"
                                                {
         (yyval.node) = new BinaryOp((yyvsp[-2].node), '<', (yyvsp[0].node));
     }
-#line 1859 "sin.tab.c"
+#line 1849 "sin.tab.c"
     break;
 
-  case 45: /* condition: numeric_factor '>' numeric_factor  */
-#line 222 "sin.y"
+  case 44: /* condition: numeric_factor '>' numeric_factor  */
+#line 224 "sin.y"
                                                {
         (yyval.node) = new BinaryOp((yyvsp[-2].node), '>', (yyvsp[0].node));
     }
-#line 1867 "sin.tab.c"
+#line 1857 "sin.tab.c"
     break;
 
-  case 46: /* condition: '(' condition TOK_OR condition ')'  */
-#line 226 "sin.y"
+  case 45: /* condition: '(' condition TOK_OR condition ')'  */
+#line 228 "sin.y"
                                                       {
     (yyval.node) = new BinaryOpp((yyvsp[-3].node), "||", (yyvsp[-1].node));
 }
-#line 1875 "sin.tab.c"
+#line 1865 "sin.tab.c"
     break;
 
-  case 47: /* condition: '(' condition TOK_AND condition ')'  */
-#line 230 "sin.y"
+  case 46: /* condition: '(' condition TOK_AND condition ')'  */
+#line 232 "sin.y"
                                                        {
     (yyval.node) = new BinaryOpp((yyvsp[-3].node), "&&", (yyvsp[-1].node));
 }
-#line 1883 "sin.tab.c"
+#line 1873 "sin.tab.c"
     break;
 
-  case 48: /* condition: numeric_expression  */
-#line 234 "sin.y"
+  case 47: /* condition: numeric_expression  */
+#line 236 "sin.y"
                               {
     (yyval.node) = (yyvsp[0].node);
 }
-#line 1891 "sin.tab.c"
+#line 1881 "sin.tab.c"
     break;
 
-  case 49: /* condition: bool  */
-#line 238 "sin.y"
+  case 48: /* condition: bool  */
+#line 240 "sin.y"
                 {
     (yyval.node) = (yyvsp[0].node);
 }
-#line 1899 "sin.tab.c"
+#line 1889 "sin.tab.c"
     break;
 
-  case 50: /* bool: TOK_TRUE  */
-#line 242 "sin.y"
+  case 49: /* bool: TOK_TRUE  */
+#line 244 "sin.y"
                {
     (yyval.node) = new True();
 }
-#line 1907 "sin.tab.c"
+#line 1897 "sin.tab.c"
     break;
 
-  case 51: /* bool: TOK_FALSE  */
-#line 246 "sin.y"
+  case 50: /* bool: TOK_FALSE  */
+#line 248 "sin.y"
                 {
     (yyval.node) = new False();
 }
-#line 1915 "sin.tab.c"
+#line 1905 "sin.tab.c"
     break;
 
-  case 52: /* loop: TOK_LOOP '(' inital condition ';' numeric_factor ')' '{' globals '}'  */
-#line 250 "sin.y"
-                                                                           {
+  case 51: /* loop: TOK_LOOP '(' initial condition ';' numeric_expression ')' '{' globals '}'  */
+#line 252 "sin.y"
+                                                                                {
+    (yyval.node) = new LoopFor((yyvsp[-7].node), (yyvsp[-6].node), (yyvsp[-4].node), (yyvsp[-1].node));
 
 }
-#line 1923 "sin.tab.c"
+#line 1914 "sin.tab.c"
     break;
 
-  case 53: /* loop: TOK_LOOP '(' condition ')' '{' globals '}'  */
-#line 254 "sin.y"
+  case 52: /* loop: TOK_LOOP '(' condition ')' '{' globals '}'  */
+#line 257 "sin.y"
                                                 {
     (yyval.node) = new LoopWhile((yyvsp[-4].node), (yyvsp[-1].node));
 }
-#line 1931 "sin.tab.c"
+#line 1922 "sin.tab.c"
     break;
 
-  case 54: /* inital: declaration  */
-#line 258 "sin.y"
-                     {}
-#line 1937 "sin.tab.c"
+  case 53: /* initial: declaration  */
+#line 261 "sin.y"
+                      {(yyval.node) = (yyvsp[0].node);}
+#line 1928 "sin.tab.c"
     break;
 
-  case 55: /* inital: atribuition  */
-#line 259 "sin.y"
-                 {}
-#line 1943 "sin.tab.c"
+  case 54: /* initial: atribuition  */
+#line 262 "sin.y"
+                 {(yyval.node) = (yyvsp[0].node);}
+#line 1934 "sin.tab.c"
     break;
 
 
-#line 1947 "sin.tab.c"
+#line 1938 "sin.tab.c"
 
       default: break;
     }
@@ -2167,4 +2158,4 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 261 "sin.y"
+#line 264 "sin.y"

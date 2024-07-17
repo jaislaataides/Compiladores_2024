@@ -68,7 +68,7 @@ int yyerror(const char *s);
     return TOK_FALSE;
 }
 
-\"[a-zA-Z_' '0-9]+\" {
+\'\'[a-zA-Z_' '0-9]+\'\' {
 	yylval.str = strndup(yytext,yyleng);
     return TOK_STRING;
 }

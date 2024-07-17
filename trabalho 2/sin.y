@@ -46,11 +46,11 @@ extern bool force_print_tree;
 
 %type<str> TOK_IDENT TOK_STRING TOK_SCAN 
 %type<chr> TOK_CHAR
-%type<itg> TOK_INT
+%type<itg> TOK_INT 
 %type<flt> TOK_FLOAT
 
 %type<node> globals global tok numeral numeric_expression numeric_term numeric_factor
- declaration atribuition selection unary print condition bool loop type 
+ declaration atribuition selection unary print condition bool loop type initial
 
 %printer { fprintf(yyo, "%s", $$);} <str>
 %printer { fprintf(yyo, "%d", $$);} <itg>
@@ -64,7 +64,13 @@ program : globals {
     Node *program = new Program();
     program-> append($globals);
 
+    CheckVarDecl cvd;
+    cvd.check(program);
 
+    if(errorcount>0)
+        cout << errorcount << " error(s) found" <<endl;
+    if(force_print_tree || errorcount ==0)
+        printf_tree(program);
 } ;
 
 globals : globals[gg] global {
@@ -87,16 +93,12 @@ declaration : type TOK_IDENT[str] '=' tok ';'{
     $$ = new Variable(new Ident($str), $type, $tok) ;
 } 
 
-declaration : type TOK_IDENT[str] ';'{
-    $$ = new Variable(new Ident($str), $type);
-}
-
 atribuition: TOK_IDENT[str] '=' tok ';'{
-    $$ = new Atribuition(searchVar($str), $tok);
+    $$ = new Atribuition(new Ident($str), $tok);
 }
 
 atribuition : TOK_IDENT[str] '=' TOK_SCAN '(' type ')'';'{
-    $$ = new Atribuition(searchVar($str), $type, );
+    $$ = new AtribuitionScan(new Ident($str), $type);
 }
 
 type : TIPO_INT[str]{
@@ -183,8 +185,8 @@ numeral : unary{
     $$ = $unary;
 } 
 
-unary : '-' numeral[f]{
-    $$ = new Unary($f, '-');
+unary : '-' numeral{
+    $$ = new Unary($numeral, '-');
 }
 
 print : TOK_PRINT '(' numeric_expression ')'';'{
@@ -247,7 +249,8 @@ bool : TOK_FALSE{
     $$ = new False();
 }
 
-loop : TOK_LOOP '(' inital  condition ';' numeric_factor ')''{' globals '}'{
+loop : TOK_LOOP '(' initial  condition ';' numeric_expression ')''{' globals '}'{
+    $$ = new LoopFor($initial, $condition, $numeric_expression, $globals);
 
 }
 
@@ -255,7 +258,7 @@ loop : TOK_LOOP '(' condition ')''{' globals '}'{
     $$ = new LoopWhile($condition, $globals);
 }
 
-inital : declaration {}
-    | atribuition{}
+initial : declaration {$$ = $declaration;}
+    | atribuition{$$ = $atribuition;}
 
 %%

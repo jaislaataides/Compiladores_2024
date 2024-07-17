@@ -2,29 +2,27 @@
 chasy (A < 3) {
     //print
     gru (A);
-}ditto chasy (A == 3){
-    gru (3);
 }ditto{
-    gru("Maior que 3");
+    gru(''Maior que 3'');
 }
 
 //loop 
 pwede(A){
-    gru ("true");
+    gru (''true'');
 }
 
 pwede((B < 3 || B > 5)){
-    gru ("3 4 e 5 fora");
+    gru (''3 4 e 5 fora'');
 }
 
 pwede (dul i = 0; i < 3; 1){
     gru (C);
 }
 
-pwede (i = 0; i < 3; 1){
+pwede (i = 0; i < 3; -2){
     gru (C);
 }
 
-pwede (i; i < 3; 1){
+pwede (i = 1; i < 3; 3){
     gru (C);
 }

@@ -90,19 +90,24 @@ class Ident : public Node{
 };
 
 class Unary : public Node{
-    protected:
-        Node *value;
-        char operation;
-    public:
-        Unary(Node *v, char op){
-            value = v;
-            operation = op;
-        }
-        virtual string toStr() override{
-            string aux;
-            aux.push_back(operation);
-            return aux;
-        }
+protected:
+    Node *value;
+    char operation;
+
+public:
+    Unary(Node *v, char op)
+    {
+        value = v;
+        operation = op;
+        children.push_back(v);
+    }
+
+    virtual string toStr() override
+    {
+        string aux;
+        aux.push_back(operation);
+        return aux;
+    }
 };
 
 class BinaryOp : public Node{
@@ -266,9 +271,19 @@ class IfElse : public Node{
 
 class LoopFor : public Node{
     protected:
+        Node *initial;
+        Node *condition;
+        Node *step;
+        Node *action;
 
     public:
-        LoopFor(){}
+        LoopFor(Node *i, Node *c, Node *s, Node *a) : initial(i), condition(c), 
+        step(s), action(a){
+            children.push_back(initial);
+            children.push_back(condition);
+            children.push_back(step);
+            children.push_back(action);
+        }
 
         virtual string toStr(){
             return "loop";
@@ -303,16 +318,20 @@ class Variable : public Node{
             children.push_back(value);
         }
 
-        Variable(Ident *i, Node *t) : ident(i), type(t){
-            children.push_back(type);
-        }
-
         string getTypeName(){
             return type->toStr();
         }
 
         Node getType(){
             return *type;
+        }
+
+        string getName(){
+            return ident->getName();
+        }
+
+        void setValue(Node *v){
+            value = v;
         }
 
         virtual string toStr(){
@@ -322,19 +341,33 @@ class Variable : public Node{
 
 class Atribuition : public Node{
     protected:
-        Variable *variable;
+        Ident *ident;
         Node *value;
 
     public:
-        Atribuition(Variable *va, Node *v) : variable(va), value(v){
+        Atribuition(Ident *i, Node *v) : ident(i), value(v){
             children.push_back(value);
-            /**/
         }
 
         virtual string toStr(){
-            return variable->toStr()+"=";
+            return ident->toStr();
+        }
+};
+
+class AtribuitionScan : public Node{
+    protected:
+        Ident *ident;
+        Node *type;
+
+    public:
+        AtribuitionScan(Ident *i, Node *t) : ident(i), type(t){
+            /*Função que escaneia*/
+            /*atribuição através do valor obtido*/
         }
 
+        virtual string toStr(){
+            return ident->toStr();
+        }
 };
 
 class True : public Node{
@@ -409,9 +442,34 @@ void printf_tree(Node *root){
     cout << "}" << endl;
 }
 
-Variable searchVar(){
-    /*TODO*/
+class CheckVarDecl {
+private:
+    set<string> symbols;
 
-    
-    return new Variable();
-}
+public:
+    CheckVarDecl() {}
+
+    void check(Node *node){
+        for (Node *c : node->getChildren()){
+            check(c);
+        }
+
+        if(Ident *id = dynamic_cast<Ident*>(node)){// cria a variavel id e verifica se o nome dela esta na tabela de simbolos
+            if(symbols.count(id->getName())<=0){
+                cout << build_file_name
+                     << ":"
+                     << id->getLineNo()
+                     << ":0: erro semantico : "
+                     << id->getName()
+                     << " nao declarado."
+                     << endl;
+                errorcount++;
+            }
+        }
+        Variable *var = dynamic_cast<Variable*>(node);//outro metodo
+        if(var){
+            symbols.insert(var->getName());
+        }
+    }
+};
+
